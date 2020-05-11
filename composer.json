@@ -1,0 +1,9 @@
+{
+    "name": "fh/blogwriter",
+    "description": "Le blog de Jean Forteroche",
+    "autoload": {
+        "psr-4": {"blog\\config\\": "config/",
+        "blog\\src\\": "src/"
+        }
+      }
+}
