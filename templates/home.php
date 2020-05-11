@@ -1,8 +1,3 @@
-<?php
-
-    use blog\src\DAO\ArticleDAO;
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,8 +9,6 @@
     <h2>Billet simple pour l'Alaska</h2>
 
     <?php
-    $article = new ArticleDAO();
-    $articles = $article->getArticles();
     while($article = $articles->fetch())
     {
         ?>

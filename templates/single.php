@@ -1,10 +1,3 @@
-<?php
-
-use blog\src\DAO\ArticleDAO;
-use blog\src\DAO\CommentDAO;
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,10 +8,6 @@ use blog\src\DAO\CommentDAO;
 <body>
 
 <?php
-
-// récupère l'article correspondant grâce à son id
-    $article = new ArticleDAO();
-    $articles = $article->getArticle($_GET['articleId']);
     $article = $articles->fetch()
 ?>
 
@@ -39,8 +28,6 @@ use blog\src\DAO\CommentDAO;
 <div id="comments" class="text-left" style="margin-left: 50px">
         <h3>Commentaires</h3>
         <?php
-        $comment = new CommentDAO();
-        $comments = $comment->getCommentsFromArticle($_GET['articleId']);
         while($comment = $comments->fetch())
         {
             ?>

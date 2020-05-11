@@ -1,30 +1,42 @@
 <?php
 
 namespace blog\config;
+use blog\src\controller\FrontController;
+use blog\src\controller\ErrorController;
 use Exception;
 
 // intercepte les requètes et renvoie vers la vue adaptée
 class Router
 {
+    private $frontController;
+    private $errorController;
+
+    public function __construct()
+    {
+        $this->frontController = new FrontController();
+        $this->errorController = new ErrorController();
+    }
+
+    // instancie des objets et utilise les méthodes adaptées des classes correspondantes
     public function run()
     {
         try{
             if(isset($_GET['route']))
             {
                 if($_GET['route'] === 'article'){
-                    require '../templates/single.php';
+                    $this->frontController->article($_GET['articleId']);
                 }
                 else{
-                    echo 'page inconnue';
+                    $this->errorController->errorNotFound();
                 }
             }
             else{
-                require '../templates/home.php';
+                $this->frontController->home();
             }
         }
         catch (Exception $e)
         {
-            echo 'Erreur';
+            $this->errorController->errorServer();
         }
     }
 }
