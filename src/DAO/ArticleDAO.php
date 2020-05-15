@@ -8,6 +8,8 @@ use blog\src\model\Article;
 class ArticleDAO extends DAO {
 
     // transforme  chaque champs de la table en propriété de l'objet article
+
+    // private function buildObject($row, $comments)
     private function buildObject($row)
     {
         $article = new Article();
@@ -16,29 +18,50 @@ class ArticleDAO extends DAO {
         $article->setContent($row['content']);
         $article->setAuthor($row['author']);
         $article->setCreatedAt($row['createdAt']);
+        // $article->setComments($comments);
+
+        // var_dump($article);
+
+        // $article = new Article();
+        // $article
+        //     ->setId($row['id'])
+        //     ->setTitle($row['title'])
+        //     ->setContent($row['content'])
+        //     ->setAuthor($row['author'])
+        //     ->setCreatedAt($row['createdAt'])
+        // ;
+
+        // var_dump($article);
+        // die;
+
         return $article;
     }
 
     // récupère les articles de la bdd et renvois des objets
     public function getArticles(){
-        $sql='SELECT * FROM blog.article ORDER BY id DESC';
-        $result=$this->createQuery($sql);
+        $sql = 'SELECT * FROM blog.article ORDER BY id DESC';
+        $result = $this->createQuery($sql);
         $articles = [];
         foreach ($result as $row){
             $articleId = $row['id'];
             $articles[$articleId] = $this->buildObject($row);
         }
         $result->closeCursor();
+
         return $articles;
     }
 
     // récupère un article 
     public function getArticle($articleId)
     {
-        $sql='SELECT id, title, content, author, createdAt FROM blog.article WHERE id = ?';
+        $sql = 'SELECT id, title, content, author, createdAt FROM blog.article WHERE id = ?';
         $result = $this->createQuery($sql,[$articleId]);
         $article = $result->fetch();
         $result->closeCursor();
+
+        // $comments = $this->commentDAO->getCommentsFromArticle($articleId);
+
         return $this->buildObject($article);
+        // return $this->buildObject($article, $comments);
     }
 }

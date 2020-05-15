@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Blog de Jean Forteroche</title>
-    </head>
-    <body>
-    <h1>Jean Forteroche</h1>
-    <h2>Billet simple pour l'Alaska</h2>
+<?php $this->title = "Accueil"; ?>
 
     <?php
      foreach ($articles as $article)
@@ -22,6 +14,3 @@
         <?php
     }
     ?>
-    </body>
-</html>
-</!DOCTYPE>

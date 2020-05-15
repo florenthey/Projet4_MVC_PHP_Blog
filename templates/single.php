@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <title>Mon blog</title>
-</head>
-
-<body>
+<?php $this->title = "Article"; ?>
 
 <div>
     <h2><?= htmlspecialchars($article->getTitle());?></h2>
@@ -20,6 +13,7 @@
 <div id="comments" class="text-left" style="margin-left: 50px">
         <h3>Commentaires</h3>
         <?php
+         //foreach ($article->getComments() as $comment)
          foreach ($comments as $comment)
         {
             ?>
@@ -30,7 +24,3 @@
         }
         ?>
     </div>
-    
-</div>
-</body>
-</html>
