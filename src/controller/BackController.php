@@ -2,15 +2,13 @@
 
 namespace blog\src\controller;
 
-use blog\src\DAO\ArticleDAO;
-use blog\src\model\View;
+use blog\config\Parameter;
 
 class BackController extends Controller
 {
-    // ajout d'un article
-    public function addArticle($post)
+    public function addArticle(Parameter $post)
     {
-        if(isset($post['submit'])) {
+        if($post->get('submit')) {
             $this->articleDAO->addArticle($post);
             header('Location: ../public/index.php');
         }

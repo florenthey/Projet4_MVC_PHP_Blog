@@ -12,25 +12,27 @@ class Router
     private $frontController;
     private $errorController;
     private $backController;
+    private $request;
 
     public function __construct()
     {
+        $this->request = new Request();
         $this->frontController = new FrontController();
+        $this->backController = new BackController();
         $this->errorController = new ErrorController();
-        $this->backController = new backController();
     }
 
-    // instancie des objets et utilise les méthodes adaptées des classes correspondantes
     public function run()
     {
+        $route = $this->request->getGet()->get('route');
         try{
-            if(isset($_GET['route']))
+            if(isset($route))
             {
-                if($_GET['route'] === 'article'){
-                    $this->frontController->article($_GET['articleId']);
+                if($route === 'article'){
+                    $this->frontController->article($this->request->getGet()->get('articleId'));
                 }
-                elseif($_GET['route'] === 'addArticle'){
-                    $this->backController->addArticle($_POST);
+                elseif ($route === 'addArticle'){
+                    $this->backController->addArticle($this->request->getPost());
                 }
                 else{
                     $this->errorController->errorNotFound();

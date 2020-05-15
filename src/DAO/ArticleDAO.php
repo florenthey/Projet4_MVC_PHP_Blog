@@ -2,6 +2,7 @@
 
 namespace blog\src\DAO;
 
+use App\config\Parameter;
 use blog\src\model\Article;
 
 // extends lie Article à Database (et permet d'utiliser sa fonction createQuery)
@@ -38,8 +39,9 @@ class ArticleDAO extends DAO {
     }
 
     // récupère les articles de la bdd et renvois des objets
-    public function getArticles(){
-        $sql = 'SELECT * FROM blog.article ORDER BY id DESC';
+    public function getArticles()
+    {
+        $sql = 'SELECT id, title, content, author, createdAt FROM article ORDER BY id DESC';
         $result = $this->createQuery($sql);
         $articles = [];
         foreach ($result as $row){
@@ -47,15 +49,14 @@ class ArticleDAO extends DAO {
             $articles[$articleId] = $this->buildObject($row);
         }
         $result->closeCursor();
-
         return $articles;
     }
 
     // récupère un article 
     public function getArticle($articleId)
     {
-        $sql = 'SELECT id, title, content, author, createdAt FROM blog.article WHERE id = ?';
-        $result = $this->createQuery($sql,[$articleId]);
+        $sql = 'SELECT id, title, content, author, createdAt FROM article WHERE id = ?';
+        $result = $this->createQuery($sql, [$articleId]);
         $article = $result->fetch();
         $result->closeCursor();
 
@@ -65,11 +66,10 @@ class ArticleDAO extends DAO {
         // return $this->buildObject($article, $comments);
     }
 
-    public function addArticle($article)
+    // insert un article
+    public function addArticle(Parameter $post)
     {
-        // Permet de récupérer les variables $title, $content et $author
-        extract($article);
         $sql = 'INSERT INTO article (title, content, author, createdAt) VALUES (?, ?, ?, NOW())';
-        $this->createQuery($sql, [$title, $content, $author]);
+        $this->createQuery($sql, [$post->get('title'), $post->get('content'), $post->get('author')]);
     }
 }
