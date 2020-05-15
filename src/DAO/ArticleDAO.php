@@ -64,4 +64,12 @@ class ArticleDAO extends DAO {
         return $this->buildObject($article);
         // return $this->buildObject($article, $comments);
     }
+
+    public function addArticle($article)
+    {
+        // Permet de récupérer les variables $title, $content et $author
+        extract($article);
+        $sql = 'INSERT INTO article (title, content, author, createdAt) VALUES (?, ?, ?, NOW())';
+        $this->createQuery($sql, [$title, $content, $author]);
+    }
 }
