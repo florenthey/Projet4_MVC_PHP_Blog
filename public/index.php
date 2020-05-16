@@ -10,6 +10,8 @@
 require '../config/dev.php';
 require '../vendor/autoload.php';
 
+session_start();
+
 // intercepte les requètes et renvoie vers la vue adaptée
 $router = new \blog\config\Router();
 $router->run();

@@ -2,7 +2,7 @@
 
 namespace blog\src\DAO;
 
-use App\config\Parameter;
+use blog\config\Parameter;
 use blog\src\model\Article;
 
 // extends lie Article à Database (et permet d'utiliser sa fonction createQuery)
