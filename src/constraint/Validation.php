@@ -10,6 +10,7 @@ class Validation
         if($name === 'Article') {
             $articleValidation = new ArticleValidation();
             $errors = $articleValidation->check($data);
+            
             return $errors;
         }
     }

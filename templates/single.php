@@ -12,7 +12,7 @@
 <br>
 
 <a href="../public/index.php">Retour à l'accueil</a>
-
+<a href="../public/index.php?route=deleteArticle&articleId=<?= $article->getId(); ?>">Supprimer</a>
 <div id="comments" class="text-left" style="margin-left: 50px">
         <h3>Commentaires</h3>
         <?php

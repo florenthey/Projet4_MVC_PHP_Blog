@@ -32,6 +32,7 @@ class Session
         {
             $key = $this->get($name);
             $this->remove($name);
+            
             return $key;
         }
     }

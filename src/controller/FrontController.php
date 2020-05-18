@@ -7,6 +7,7 @@ class FrontController extends Controller
     public function home()
     {
         $articles = $this->articleDAO->getArticles();
+        
         return $this->view->render('home', [
            'articles' => $articles
         ]);
@@ -16,6 +17,7 @@ class FrontController extends Controller
     {
         $article = $this->articleDAO->getArticle($articleId);
         $comments = $this->commentDAO->getCommentsFromArticle($articleId);
+
         return $this->view->render('single', [
             'article' => $article,
             'comments' => $comments

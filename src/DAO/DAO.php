@@ -44,9 +44,11 @@ abstract class DAO {
         {
             $result = $this->checkConnection()->prepare($sql);
             $result->execute($parameters);
+
             return $result;
         }
         $result = $this->checkConnection()->query($sql);
+        
         return $result;
     }
 }
