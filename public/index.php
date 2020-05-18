@@ -1,5 +1,7 @@
 <?php
 
+use blog\config\Router;
+
 //if action = display
     //appel post controller
         //appel méthode display (+id) = methode de controller
@@ -13,5 +15,5 @@ require '../vendor/autoload.php';
 session_start();
 
 // intercepte les requètes et renvoie vers la vue adaptée
-$router = new \blog\config\Router();
+$router = new Router();
 $router->run();

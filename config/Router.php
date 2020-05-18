@@ -1,9 +1,13 @@
 <?php
 
 namespace blog\config;
+
 use blog\src\controller\FrontController;
+
 use blog\src\controller\ErrorController;
+
 use blog\src\controller\BackController;
+
 use Exception;
 
 // intercepte les requètes et renvoie vers la vue adaptée
@@ -41,6 +45,15 @@ class Router
                 }
                 elseif($route === 'deleteArticle'){
                     $this->backController->deleteArticle($this->request->getGet()->get('articleId'));
+                }
+                elseif($route === 'addComment'){
+                    $this->frontController->addComment($this->request->getPost(), $this->request->getGet()->get('articleId'));
+                }
+                elseif($route === 'flagComment'){
+                    $this->frontController->flagComment($this->request->getGet()->get('commentId'));
+                }
+                elseif($route === 'deleteComment'){
+                    $this->backController->deleteComment($this->request->getGet()->get('commentId'));
                 }
                 else{
                     $this->errorController->errorNotFound();

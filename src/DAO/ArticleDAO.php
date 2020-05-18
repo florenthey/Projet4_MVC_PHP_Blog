@@ -13,24 +13,25 @@ class ArticleDAO extends DAO {
     // private function buildObject($row, $comments)
     private function buildObject($row)
     {
-        $article = new Article();
-        $article->setId($row['id']);
-        $article->setTitle($row['title']);
-        $article->setContent($row['content']);
-        $article->setAuthor($row['author']);
-        $article->setCreatedAt($row['createdAt']);
-        // $article->setComments($comments);
+        // $article = new Article();
+        // $article->setId($row['id']);
+        // $article->setTitle($row['title']);
+        // $article->setContent($row['content']);
+        // $article->setAuthor($row['author']);
+        // $article->setCreatedAt($row['createdAt']);
+        
+        //$article->setComments($this->commentDAO->getCommentsFromArticle($articleId));
 
         // var_dump($article);
 
-        // $article = new Article();
-        // $article
-        //     ->setId($row['id'])
-        //     ->setTitle($row['title'])
-        //     ->setContent($row['content'])
-        //     ->setAuthor($row['author'])
-        //     ->setCreatedAt($row['createdAt'])
-        // ;
+        $article = new Article();
+        $article
+            ->setId($row['id'])
+            ->setTitle($row['title'])
+            ->setContent($row['content'])
+            ->setAuthor($row['author'])
+            ->setCreatedAt($row['createdAt'])
+        ;
 
         // var_dump($article);
         // die;
@@ -61,7 +62,7 @@ class ArticleDAO extends DAO {
         $article = $result->fetch();
         $result->closeCursor();
 
-        // $comments = $this->commentDAO->getCommentsFromArticle($articleId);
+        //$comments = $this->commentDAO->getCommentsFromArticle($articleId);
 
         return $this->buildObject($article);
         // return $this->buildObject($article, $comments);

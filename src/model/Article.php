@@ -4,12 +4,12 @@ namespace blog\src\model;
 
 class Article
 {
-
     private $id;
     private $title;
     private $content;
     private $author;
     private $createdAt;
+    private $comment;
 
     public function getId()
     {
@@ -19,6 +19,8 @@ class Article
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     public function getTitle()
@@ -29,6 +31,8 @@ class Article
     public function setTitle($title)
     {
         $this->title = $title;
+
+        return $this;
     }
 
     public function getContent()
@@ -39,6 +43,8 @@ class Article
     public function setContent($content)
     {
         $this->content = $content;
+
+        return $this;
     }
 
     public function getAuthor()
@@ -49,6 +55,8 @@ class Article
     public function setAuthor($author)
     {
         $this->author = $author;
+
+        return $this;
     }
 
     public function getCreatedAt()
@@ -59,5 +67,19 @@ class Article
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+        
+        return $this;
     }
+
+    // public function getComments()
+    // {
+    //     return $this->comment;
+    // }
+
+    // public function setComments($comment)
+    // {
+    //     $this->comment = $comment;
+
+    //     return $this;
+    // }
 }
