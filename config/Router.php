@@ -36,30 +36,29 @@ class Router
             {
                 if($route === 'article'){
                     $this->frontController->article($this->request->getGet()->get('articleId'));
-                }
-                elseif ($route === 'addArticle'){
+                    // $this->frontController->article($_GET['articleId']);
+                } elseif ($route === 'addArticle') {
                     $this->backController->addArticle($this->request->getPost());
-                }
-                elseif ($route === 'editArticle'){
+                } elseif ($route === 'editArticle') {
                     $this->backController->editArticle($this->request->getPost(), $this->request->getGet()->get('articleId'));
-                }
-                elseif($route === 'deleteArticle'){
+                } elseif ($route === 'deleteArticle') {
                     $this->backController->deleteArticle($this->request->getGet()->get('articleId'));
-                }
-                elseif($route === 'addComment'){
+                } elseif ($route === 'addComment') {
                     $this->frontController->addComment($this->request->getPost(), $this->request->getGet()->get('articleId'));
-                }
-                elseif($route === 'flagComment'){
+                } elseif ($route === 'flagComment') {
                     $this->frontController->flagComment($this->request->getGet()->get('commentId'));
-                }
-                elseif($route === 'deleteComment'){
+                } elseif ($route === 'deleteComment') {
                     $this->backController->deleteComment($this->request->getGet()->get('commentId'));
-                }
-                else{
+                } elseif($route === 'login') {
+                    $this->frontController->login($this->request->getPost());
+                } elseif($route === 'logout'){
+                    $this->backController->logout();
+                } elseif($route === 'administration'){
+                    $this->backController->administration();
+                } else {
                     $this->errorController->errorNotFound();
                 }
-            }
-            else{
+            } else {
                 $this->frontController->home();
             }
         }

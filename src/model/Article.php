@@ -9,7 +9,7 @@ class Article
     private $content;
     private $author;
     private $createdAt;
-    private $comment;
+    private $comments;
 
     public function getId()
     {
@@ -71,15 +71,15 @@ class Article
         return $this;
     }
 
-    // public function getComments()
-    // {
-    //     return $this->comment;
-    // }
+    public function getComments()
+    {
+        return $this->comments;
+    }
 
-    // public function setComments($comment)
-    // {
-    //     $this->comment = $comment;
+    public function setComments($comments)
+    {
+        $this->comments = $comments;
 
-    //     return $this;
-    // }
+        return $this;
+    }
 }

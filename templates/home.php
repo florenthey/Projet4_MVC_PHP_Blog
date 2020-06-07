@@ -6,7 +6,11 @@
 <?= $this->session->show('add_comment'); ?>
 <?= $this->session->show('flag_comment'); ?>
 <?= $this->session->show('delete_comment'); ?>
-<a href="../public/index.php?route=addArticle">Nouvel article</a>
+<?= $this->session->show('login'); ?>
+<?= $this->session->show('logout'); ?>
+<a href="../public/index.php?route=login">Connexion</a>
+<a href="../public/index.php?route=logout">Déconnexion</a>
+<a href="../public/index.php?route=administration">Administration</a>
 <?php
 foreach ($articles as $article)
 {

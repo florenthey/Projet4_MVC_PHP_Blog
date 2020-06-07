@@ -4,26 +4,22 @@ namespace blog\src\DAO;
 
 use blog\config\Parameter;
 use blog\src\model\Article;
+use blog\src\DAO\CommentDAO;
 
 // extends lie Article à Database (et permet d'utiliser sa fonction createQuery)
 class ArticleDAO extends DAO {
+    protected $commentDAO;
+
+    public function __construct()
+    {
+        $this->commentDAO = new CommentDAO();
+    }
 
     // transforme  chaque champs de la table en propriété de l'objet article
 
     // private function buildObject($row, $comments)
     private function buildObject($row)
     {
-        // $article = new Article();
-        // $article->setId($row['id']);
-        // $article->setTitle($row['title']);
-        // $article->setContent($row['content']);
-        // $article->setAuthor($row['author']);
-        // $article->setCreatedAt($row['createdAt']);
-        
-        //$article->setComments($this->commentDAO->getCommentsFromArticle($articleId));
-
-        // var_dump($article);
-
         $article = new Article();
         $article
             ->setId($row['id'])
@@ -31,11 +27,9 @@ class ArticleDAO extends DAO {
             ->setContent($row['content'])
             ->setAuthor($row['author'])
             ->setCreatedAt($row['createdAt'])
+            ->setComments($this->commentDAO->getCommentsFromArticle($row['id']))
         ;
-
-        // var_dump($article);
-        // die;
-
+        
         return $article;
     }
 
@@ -62,10 +56,10 @@ class ArticleDAO extends DAO {
         $article = $result->fetch();
         $result->closeCursor();
 
-        //$comments = $this->commentDAO->getCommentsFromArticle($articleId);
+        // $comments = $this->CommentDAO->getCommentsFromArticle($articleId);
 
-        return $this->buildObject($article);
         // return $this->buildObject($article, $comments);
+        return $this->buildObject($article);
     }
 
     // insertion d'un article

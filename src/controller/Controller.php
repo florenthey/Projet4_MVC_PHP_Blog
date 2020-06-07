@@ -6,6 +6,7 @@ use blog\config\Request;
 use blog\src\constraint\Validation;
 use blog\src\DAO\ArticleDAO;
 use blog\src\DAO\CommentDAO;
+use blog\src\DAO\UserDAO;
 use blog\src\model\View;
 
 // centralise les données qui seront utilisées par les controllers qui héritent de cette classe
@@ -13,6 +14,7 @@ abstract class Controller
 {
     protected $articleDAO;
     protected $commentDAO;
+    protected $userDAO;
     protected $view;
     private $request;
     protected $get;
@@ -24,6 +26,7 @@ abstract class Controller
     {
         $this->articleDAO = new ArticleDAO();
         $this->commentDAO = new CommentDAO();
+        $this->userDAO = new UserDAO();
         $this->view = new View();
         $this->validation = new Validation();
         $this->request = new Request();

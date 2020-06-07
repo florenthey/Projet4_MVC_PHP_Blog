@@ -18,9 +18,7 @@
     <?php include('form_comment.php'); ?>
         <h3>Commentaires</h3>
         <?php
-         //foreach ($article->getComments() as $comment)
-         foreach ($comments as $comment)
-        {
+         foreach ($article->getComments() as $comment) {
             ?>
             <h4><?= htmlspecialchars($comment->getPseudo());?></h4>
             <p><?= htmlspecialchars($comment->getContent());?></p>

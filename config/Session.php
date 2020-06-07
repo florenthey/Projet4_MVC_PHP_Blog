@@ -17,7 +17,7 @@ class Session
         $_SESSION[$name] = $value;
     }
 
-    // retourne le nom
+    // renvoie le nom
     public function get($name)
     {
         if(isset($_SESSION[$name])) {
@@ -40,6 +40,11 @@ class Session
     public function remove($name)
     {
         unset($_SESSION[$name]);
+    }
+
+    public function start()
+    {
+        session_start();
     }
 
     public function stop()
