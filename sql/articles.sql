@@ -7,7 +7,7 @@ CREATE TABLE `article` (
 
 `content` text NOT NULL,
 
-`author` varchar(100) NOT NULL,
+-- `author` varchar(100) NOT NULL,
 
 `createdAt` datetime NOT NULL
 

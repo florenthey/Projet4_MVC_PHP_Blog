@@ -1,11 +1,7 @@
 <?php $this->title = "Accueil"; ?>
 
-<?= $this->session->show('add_article'); ?>
-<?= $this->session->show('edit_article'); ?>
-<?= $this->session->show('delete_article'); ?>
 <?= $this->session->show('add_comment'); ?>
 <?= $this->session->show('flag_comment'); ?>
-<?= $this->session->show('delete_comment'); ?>
 <?= $this->session->show('login'); ?>
 <?= $this->session->show('logout'); ?>
 <a href="../public/index.php?route=login">Connexion</a>

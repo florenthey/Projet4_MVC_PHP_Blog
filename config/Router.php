@@ -32,9 +32,8 @@ class Router
         // var_dump($this->request->getSession()->get('test'));
         $route = $this->request->getGet()->get('route');
         try{
-            if(isset($route))
-            {
-                if($route === 'article'){
+            if (isset($route)) {
+                if ($route === 'article') {
                     $this->frontController->article($this->request->getGet()->get('articleId'));
                     // $this->frontController->article($_GET['articleId']);
                 } elseif ($route === 'addArticle') {
@@ -47,6 +46,8 @@ class Router
                     $this->frontController->addComment($this->request->getPost(), $this->request->getGet()->get('articleId'));
                 } elseif ($route === 'flagComment') {
                     $this->frontController->flagComment($this->request->getGet()->get('commentId'));
+                } elseif($route === 'unflagComment'){
+                    $this->backController->unflagComment($this->request->getGet()->get('commentId'));
                 } elseif ($route === 'deleteComment') {
                     $this->backController->deleteComment($this->request->getGet()->get('commentId'));
                 } elseif($route === 'login') {
@@ -55,7 +56,8 @@ class Router
                     $this->backController->logout();
                 } elseif($route === 'administration'){
                     $this->backController->administration();
-                } else {
+                } 
+                else {
                     $this->errorController->errorNotFound();
                 }
             } else {

@@ -7,8 +7,8 @@
     <p>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></p>
 </div>
 <div class="actions">
-    <a href="../public/index.php?route=editArticle&articleId=<?= $article->getId(); ?>">Modifier</a>
-    <a href="../public/index.php?route=deleteArticle&articleId=<?= $article->getId(); ?>">Supprimer</a>
+    <!-- <a href="../public/index.php?route=editArticle&articleId=<?= $article->getId(); ?>">Modifier</a> -->
+    <!-- <a href="../public/index.php?route=deleteArticle&articleId=<?= $article->getId(); ?>">Supprimer</a> -->
 </div>
 <br>
 
@@ -34,7 +34,7 @@
             <?php
         }
         ?>
-       <p><a href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a></p>
+       <!-- <p><a href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a></p> -->
         <br>
         <?php
     }
