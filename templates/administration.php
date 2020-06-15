@@ -65,6 +65,5 @@
     }
     ?>
 </table>
-
-
-<h2>Utilisateurs</h2>
+<br>
+<a href="../public/index.php">Retour à l'accueil</a>
