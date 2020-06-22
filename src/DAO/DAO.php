@@ -40,8 +40,7 @@ abstract class DAO {
     // si connexion, requete sql ou sql + params...
     protected function createQuery($sql, $parameters = null)
     {
-        if($parameters)
-        {
+        if($parameters) {
             $result = $this->checkConnection()->prepare($sql);
             $result->execute($parameters);
 

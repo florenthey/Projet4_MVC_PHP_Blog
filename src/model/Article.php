@@ -10,6 +10,7 @@ class Article
     private $author;
     private $createdAt;
     private $comments;
+    private $userId;
 
     public function getId()
     {
@@ -79,6 +80,18 @@ class Article
     public function setComments($comments)
     {
         $this->comments = $comments;
+
+        return $this;
+    }
+
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
 
         return $this;
     }

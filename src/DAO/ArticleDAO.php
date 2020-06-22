@@ -27,6 +27,7 @@ class ArticleDAO extends DAO {
             ->setContent($row['content'])
             //->setAuthor($row['author'])
             ->setAuthor($row['pseudo'])
+            ->setUserId($row['userId'])
             ->setCreatedAt($row['createdAt'])
             ->setComments($this->commentDAO->getCommentsFromArticle($row['id']))
         ;
@@ -38,7 +39,7 @@ class ArticleDAO extends DAO {
     public function getArticles()
     {
         //$sql = 'SELECT id, title, content, author, createdAt FROM article ORDER BY id DESC';
-        $sql = 'SELECT article.id, article.title, article.content, user.pseudo, article.createdAt FROM article INNER JOIN user ON article.user_id = user.id ORDER BY article.id DESC';
+        $sql = 'SELECT article.id, article.title, article.content, article.user_id AS userId, user.pseudo, article.createdAt FROM article INNER JOIN user ON article.user_id = user.id ORDER BY article.id DESC';
         $result = $this->createQuery($sql);
 
         $articles = [];
@@ -54,7 +55,7 @@ class ArticleDAO extends DAO {
     // récupère un article 
    public function getArticle($articleId)
     {
-        $sql = 'SELECT article.id, article.title, article.content, user.pseudo, article.createdAt FROM article INNER JOIN user ON article.user_id = user.id WHERE article.id = ?';
+        $sql = 'SELECT article.id, article.title, article.content, article.user_id AS userId, user.pseudo, article.createdAt FROM article INNER JOIN user ON article.user_id = user.id WHERE article.id = ?';
         $result = $this->createQuery($sql, [$articleId]);
         $article = $result->fetch();
         $result->closeCursor();
@@ -75,14 +76,15 @@ class ArticleDAO extends DAO {
     }
 
     // édition d'un article
-    public function editArticle(Parameter $post, $articleId, $userId)
+    public function editArticle(Article $article)
     {
         $sql = 'UPDATE article SET title=:title, content=:content, user_id=:user_id WHERE id=:articleId';
+ 
         $this->createQuery($sql, [
-            'title' => $post->get('title'),
-            'content' => $post->get('content'),
-            'user_id' => $userId,
-            'articleId' => $articleId
+            'title' => $article->getTitle(),
+            'content' => $article->getContent(),
+            'user_id' => $article->getUserId(),
+            'articleId' => $article->getId(),
         ]);
     }
 
