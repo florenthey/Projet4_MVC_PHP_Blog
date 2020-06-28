@@ -9,8 +9,8 @@ $submit = $route === 'addArticle' ? 'Envoyer' : 'Mettre à jour';
     <label for="content">Contenu</label><br>
     <textarea id="content" name="content"><?= isset($post) ? htmlspecialchars($post->get('content')): ''; ?></textarea><br>
     <?= isset($errors['content']) ? $errors['content'] : ''; ?>
-    <label for="author">Auteur</label><br>
+    <!-- <label for="author">Auteur</label><br>
     <input type="text" id="author" name="author" value="<?= isset($post) ? htmlspecialchars($post->get('author')): ''; ?>"><br>
-    <?= isset($errors['author']) ? $errors['author'] : ''; ?>
+    <?= isset($errors['author']) ? $errors['author'] : ''; ?> -->
     <input type="submit" value="<?= $submit; ?>" id="submit" name="submit">
 </form>

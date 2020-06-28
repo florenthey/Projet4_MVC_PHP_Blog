@@ -1,0 +1,54 @@
+body {
+    background: #343a40;
+}
+
+.logout-btn {
+    text-decoration: none !important;
+    color: #212528;
+}
+
+.logout-btn:hover {
+    color: #212528 !important;
+}
+
+.card-header {
+    background-color: black;
+}
+
+.chapter-title {
+    font-family: 'Special Elite', cursive;
+    font-size: 30px;
+    color: red;
+}
+
+.container-img {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.container-img h1 {
+    font-family: 'Special Elite', cursive;
+    color: red;
+    font-size: 65px;
+    font-weight: 600;
+}
+
+.container-img h2 {
+    font-size: 45px;
+}
+
+.container-img p {
+    font-size: 25px;
+}
+
+.alaska-img {
+    width: 100%;
+}
+
+.text-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
