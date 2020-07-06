@@ -17,3 +17,4 @@ session_start();
 // intercepte les requètes et renvoie vers la vue adaptée
 $router = new Router();
 $router->run();
+

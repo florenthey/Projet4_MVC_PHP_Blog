@@ -11,13 +11,13 @@ class Session
         $this->session = $session;
     }
 
-    // récupère le nom
+    // définie le message
     public function set($name, $value)
     {
         $_SESSION[$name] = $value;
     }
 
-    // renvoie le nom
+    // renvoie le message
     public function get($name)
     {
         if(isset($_SESSION[$name])) {
@@ -25,14 +25,13 @@ class Session
         }
     }
 
-    // affiche le nom
+    // affiche le message si la variable existe
     public function show($name)
     {
         if(isset($_SESSION[$name]))
-        {
+        { 
             $key = $this->get($name);
-            $this->remove($name);
-            
+            //$this->remove($name);
             return $key;
         }
     }
@@ -51,5 +50,4 @@ class Session
     {
         session_destroy();
     }
-
 }
