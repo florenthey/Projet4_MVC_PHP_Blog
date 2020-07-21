@@ -1,4 +1,5 @@
-<!-- <?php $this->title = "Connexion"; ?>
+<!-- <?php $this->meta = "Page pour se connecter"; ?>
+<?php $this->title = "Connexion"; ?>
 <?= $this->session->show('error_login'); ?>
 <div>
     <form method="post" action="../public/index.php?route=login">
@@ -9,4 +10,4 @@
         <input type="submit" value="Connexion" id="submit" name="submit">
     </form>
     <a href="../public/index.php">Retour à l'accueil</a>
-</div> --> -->
+</div> -->

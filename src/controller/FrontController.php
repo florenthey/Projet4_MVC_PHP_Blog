@@ -33,6 +33,7 @@ class FrontController extends Controller
             if(!$errors) {
                 $this->commentDAO->addComment($post, $articleId);
                 $this->session->set('add_comment', 'Le nouveau commentaire a bien été ajouté');
+
                 header('Location: ../public/index.php');
             }
             $article = $this->articleDAO->getArticle($articleId);
@@ -50,24 +51,23 @@ class FrontController extends Controller
     {
         $this->commentDAO->flagComment($commentId);
         $this->session->set('flag_comment', 'Le commentaire a bien été signalé');
+
         header('Location: ../public/index.php');
     }
 
-    public function login(Parameter $post)  
-    {
+    public function login(Parameter $post) {
         if($post->get('submit')) {
             $result = $this->userDAO->login($post);
             if($result && $result['isPasswordValid']) {
                 $this->session->set('login', 'Content de vous revoir');
                 $this->session->set('id', $result['result']['id']);
                 $this->session->set('pseudo', $post->get('pseudo'));
+
                 header('Location: ../public/index.php');
-            }
-            else {
+            } else {
                 $this->session->set('error_login', 'Le pseudo ou le mot de passe sont incorrects');
-                return $this->view->render('login', [
-                    'post'=> $post
-                ]);
+
+                return $this->view->render('login', ['post'=> $post]);
             }
         }
         return $this->view->render('login');

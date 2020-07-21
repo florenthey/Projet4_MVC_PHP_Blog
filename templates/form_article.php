@@ -8,10 +8,8 @@ $submit = $route === 'addArticle' ? 'Envoyer' : 'Mettre à jour';
     <input type="text" id="title" name="title" value="<?= isset($article) ? htmlspecialchars($article->getTitle()): ''; ?>"><br>
     <?= isset($errors['title']) ? $errors['title'] : ''; ?>
     <label for="content">Contenu</label><br>
-    <textarea id="content" name="content"><?= isset($article) ? htmlspecialchars($article->getContent()): ''; ?></textarea><br>
+    <textarea id="tinymce" class="textarea" name="content"><?= isset($article) ? htmlspecialchars($article->getContent()): ''; ?></textarea><br>
     <?= isset($errors['content']) ? $errors['content'] : ''; ?>
-    <!-- <label for="author">Auteur</label><br>
-    <input type="text" id="author" name="author" value="<?= $author; ?>"><br> -->
     <div class="text-center">
         <input class="btn btn-success" type="submit" value="<?= $submit; ?>" id="submit" name="submit">
     </div>

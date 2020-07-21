@@ -4,27 +4,9 @@ namespace blog\src\controller;
 
 use blog\config\Parameter;
 
-class BackController extends Controller
-{
-    // public function addArticle(Parameter $post)
-    // {
-    //     if($post->get('submit')) {
-    //         $errors = $this->validation->validate($post, 'Article');
-    //         if(!$errors) {
-    //             $this->articleDAO->addArticle($post);
-    //             $this->session->set('add_article', 'Le nouvel article a bien été ajouté');
-    //             header('Location: ../public/index.php');
-    //         }
-    //         return $this->view->render('add_article', [
-    //             'post' => $post,
-    //             'errors' => $errors
-    //         ]);
-    //     }
-    //     return $this->view->render('add_article');
-    // }
+class BackController extends Controller {
 
-    public function addArticle(Parameter $post)
-    {
+    public function addArticle(Parameter $post) {
         if($this->checkLoggedIn()) {
             if ($post->get('submit')) {
                 $errors = $this->validation->validate($post, 'Article');
@@ -33,18 +15,19 @@ class BackController extends Controller
                     $this->session->set('add_article', 'Le nouvel article a bien été ajouté');
                     header('Location: ../public/index.php?route=administration');
                 }
+
                 return $this->view->render('add_article', [
                     'post' => $post,
                     'errors' => $errors
                 ]);
             }
+
             return $this->view->render('add_article');
         }
     }
 
-    public function editArticle(Parameter $post, $articleId)
-    {
-        //if($this->checkLoggedIn()) {
+    public function editArticle(Parameter $post, $articleId) {
+        if($this->checkLoggedIn()) {
             $article = $this->articleDAO->getArticle($articleId);
             $errors = null;
 
@@ -68,12 +51,10 @@ class BackController extends Controller
                 'article' => $article,
                 'errors' => $errors
             ]);
-        // }
-        die;
+        }
     }
 
-    public function deleteArticle($articleId)
-    {
+    public function deleteArticle($articleId) {
         if($this->checkLoggedIn()) {
             $this->articleDAO->deleteArticle($articleId);
             $this->session->set('delete_article', 'L\' article a bien été supprimé');
@@ -82,8 +63,7 @@ class BackController extends Controller
         }
     }
 
-    public function deleteComment($commentId)
-    {
+    public function deleteComment($commentId) {
         if($this->checkLoggedIn()) {
             $this->commentDAO->deleteComment($commentId);
             $this->session->set('delete_comment', 'Le commentaire a bien été supprimé');
@@ -92,8 +72,7 @@ class BackController extends Controller
         }
     }
 
-      public function unflagComment($commentId)
-    {
+    public function unflagComment($commentId) {
         if($this->checkLoggedIn()) {
             $this->commentDAO->unflagComment($commentId);
             $this->session->set('unflag_comment', 'Le commentaire a bien été désignalé');
@@ -102,10 +81,8 @@ class BackController extends Controller
         }
     }
 
-    public function logout()
-    {
-        if($this->checkLoggedIn())
-        {
+    public function logout() {
+        if($this->checkLoggedIn()) {
             $this->session->stop();
             $this->session->start();
             $this->session->set('logout', 'À bientôt');
@@ -114,8 +91,7 @@ class BackController extends Controller
         }
     }
 
-    private function checkLoggedIn()
-    {
+    private function checkLoggedIn() {
         if(!$this->session->get('pseudo')) {
             $this->session->set('need_login', 'Vous devez vous connecter pour accéder à cette page');
 
@@ -125,8 +101,7 @@ class BackController extends Controller
         return true;
     }
 
-    public function administration()
-    {
+    public function administration() {
         if($this->checkLoggedIn()) {
             $articles = $this->articleDAO->getArticles();
             $comments = $this->commentDAO->getFlagComments();

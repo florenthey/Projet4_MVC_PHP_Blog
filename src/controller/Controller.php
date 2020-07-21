@@ -10,8 +10,7 @@ use blog\src\DAO\UserDAO;
 use blog\src\model\View;
 
 // centralise les données qui seront utilisées par les controllers qui héritent de cette classe
-abstract class Controller
-{
+abstract class Controller {
     protected $articleDAO;
     protected $commentDAO;
     protected $userDAO;
@@ -22,8 +21,7 @@ abstract class Controller
     protected $session;
     protected $validation;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->articleDAO = new ArticleDAO();
         $this->commentDAO = new CommentDAO();
         $this->userDAO = new UserDAO();

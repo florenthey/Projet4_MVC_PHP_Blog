@@ -2,6 +2,10 @@ body {
     background: #343a40;
 }
 
+.text-img-responsive {
+    display: none;
+}
+
 .container {
     padding: 25px;
 }
@@ -27,9 +31,9 @@ body {
     color: #212528;
 }
 
-#content {
+.textarea {
     width: 100%;
-    height: 200px;
+    height: 400px;
 }
 
 .comment-date {
@@ -84,4 +88,40 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.text-img h1 {
+    font-size: 4vw;
+}
+
+.text-img h2 {
+    font-size: 6vw;
+}
+
+.text-img p {
+    font-size: 3vw;
+}
+
+@media screen and (max-width: 400px) {
+    .text-img {
+        display: none;
+    }
+    .text-img-responsive {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .text-img-responsive h1 {
+        font-size: 5vw;
+    }
+    
+    .text-img-responsive h2 {
+        font-size: 7vw;
+    }
+    
+    .text-img-responsive p {
+        font-size: 4vw;
+    }
 }

@@ -9,7 +9,7 @@
     <!-- <a class="btn btn-success" href="../public/index.php?route=addArticle">Écrire un nouveau chapitre</a> -->
     <hr>
     <h2 id="sections">Chapitres publiés</h2>
-    <div class="table-responsive-xl">
+    <div class="table-responsive">
         <table class="table table-striped table-light table-hover">
             <thead>
                 <tr>
@@ -24,8 +24,8 @@
                 <?php foreach ($articles as $article) { ?>
                     <tr>
                         <th scope="row"><?= htmlspecialchars($article->getId());?></th>
-                        <td><a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?></a></td>
-                        <td><?= substr(htmlspecialchars($article->getContent()), 0, 150);?></td>
+                        <td><a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= $article->getTitle();?></a></td>
+                        <td><?= substr($article->getContent(), 0, 150);?></td>
                         <td><?= htmlspecialchars($article->getCreatedAt());?></td>
                         <td>
                             <a class="btn btn-warning" id="actions-btn" href="../public/index.php?route=editArticle&articleId=<?= $article->getId(); ?>">Modifier</a>
@@ -38,7 +38,7 @@
     </div>
     <hr>
     <h2 id="sections">Commentaires signalés</h2>
-    <div class="table-responsive-xl">
+    <div class="table-responsive">
         <table class="table table-striped table-light table-hover">
             <thead>
                 <tr>

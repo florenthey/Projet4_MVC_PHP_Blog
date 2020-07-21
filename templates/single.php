@@ -1,7 +1,7 @@
-<?php $title = htmlspecialchars($article->getTitle()) ?>
+<?php $title = $article->getTitle() ?>
 <?php $this->meta = "Page contenant le chapitre: " .$title; ?>
 <?php $this->title = "Article"; ?>
-<!-- <?= setlocale(LC_TIME, "fr_FR"); ?> -->
+<?php setlocale(LC_TIME, "fr_FR"); ?>
 
 <div class="container">
     <a class="btn btn-warning" href="../public/index.php">Retour à la liste des chapitres</a>
@@ -10,7 +10,7 @@
             <h1><?= $title ?></h1>
         </div>
         <div class="card-body">
-            <p><?= htmlspecialchars($article->getContent());?></p>
+            <p><?= $article->getContent();?></p>
             <footer class="blockquote-footer">Publié le: <cite title="Source Title"><?= $dateFormat = strftime("%A %d %B %G", strtotime($article->getCreatedAt())); ?></cite></footer>
         </div>
         <div class="card-footer text-muted">

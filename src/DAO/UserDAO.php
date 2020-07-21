@@ -6,8 +6,7 @@ use blog\config\Parameter;
 
 class UserDAO extends DAO {
     
-    public function login(Parameter $post)
-    {
+    public function login(Parameter $post) {
         $sql = 'SELECT id, password FROM user WHERE pseudo = ?';
         $data = $this->createQuery($sql, [$post->get('pseudo')]);
         $result = $data->fetch();

@@ -15,12 +15,14 @@
         <form method="post" action="../public/index.php?route=login">
           <div class="form-row">
             <div class="col">
+            <?php if (!isset($_SESSION['id'])): ?>
               <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Pseudo">
             </div>
             <div class="col">
               <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe">
             </div>
             <div class="col">
+            <?php endif ?>
               <!-- <input type="submit" value="Connexion" id="submit" name="submit"> -->
               <!-- <button type="submit" class="btn btn-warning" id="submit" value="Connexion" name="submit"> -->
 
@@ -29,8 +31,7 @@
                 <!-- <a class="btn btn-warning" class="nav-link" href="../public/index.php?route=logout">Déconnexion</a> -->
               <?php else: ?>
                 <button type="submit" class="btn btn-success" id="submit" value="Connexion" name="submit">Connexion</button>
-              <?php endif; ?>
-                
+              <?php endif; ?>   
             </div>
           </div>
         </form>

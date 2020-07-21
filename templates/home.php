@@ -15,6 +15,11 @@
   <h2 class="display-4">Billet simple pour l'Alaska</h2>
     <p>Le nouveau roman du roi du thriller, en lecture libre.
   </div>
+  <div class="text-img-responsive">
+  <h1>Jean Forteroche présente:</h1>
+  <h2 class="display-4">Billet simple pour l'Alaska</h2>
+    <p>Le nouveau roman du roi du thriller, en lecture libre.
+  </div>
 </div>
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
@@ -24,18 +29,18 @@
 </div>
 
 <div class="container">
-<?= setlocale(LC_TIME, "fr_FR"); ?>
+<?php setlocale(LC_TIME, "fr_FR"); ?>
 <?php
   foreach ($articles as $article) { 
       ?>
         <div class="card text-center border-dark">
           <div class="card-header">
-            <a class="chapter-title"href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?></a>
+            <a class="chapter-title"href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= $article->getTitle();?></a>
           </div>
           <div class="card-body">
             <h3 class="card-title"></h3>
-            <p class="card-text"><?= htmlspecialchars(mb_strimwidth($article->getContent(), 0, 350, " ..."));?></p>
-            <p>
+            <p class="card-text"><?= mb_strimwidth($article->getContent(), 0, 350, " ...");?></p>
+            <p class="text-center">
               <a class="btn btn-warning" href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?> (...suite)</a>
             </p>
           </div>
