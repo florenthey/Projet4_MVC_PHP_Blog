@@ -1,0 +1,127 @@
+body {
+    background: #343a40;
+}
+
+.text-img-responsive {
+    display: none;
+}
+
+.container {
+    padding: 25px;
+}
+
+#sections {
+    font-family: 'Special Elite', cursive;
+    color: #e0a800;
+}
+
+#actions-btn {
+   width: 100%;
+   margin: 2px;
+}
+
+.title {
+    font-family: 'Special Elite', cursive;
+    color: red;
+    text-align: center;
+}
+
+.logout-btn {
+    text-decoration: none !important;
+    color: #212528;
+}
+
+.textarea {
+    width: 100%;
+    height: 400px;
+}
+
+.comment-date {
+    font-size: 12px;
+}
+
+.alerted-comment {
+    color: red;
+}
+
+.logout-btn:hover {
+    color: #212528 !important;
+}
+
+.card-header {
+    background-color: black;
+}
+
+.chapter-title, .card-header {
+    font-family: 'Special Elite', cursive;
+    font-size: 30px;
+    color: red;
+}
+
+.container-img {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.container-img h2 {
+    font-family: 'Special Elite', cursive;
+    color: red;
+    font-size: 65px;
+    font-weight: 600;
+}
+
+.container-img h1 {
+    font-size: 45px;
+}
+
+.container-img p {
+    font-size: 25px;
+}
+
+.alaska-img {
+    width: 100%;
+}
+
+.text-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text-img h1 {
+    font-size: 4vw;
+}
+
+.text-img h2 {
+    font-size: 6vw;
+}
+
+.text-img p {
+    font-size: 3vw;
+}
+
+@media screen and (max-width: 400px) {
+    .text-img {
+        display: none;
+    }
+    .text-img-responsive {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .text-img-responsive h1 {
+        font-size: 5vw;
+    }
+    
+    .text-img-responsive h2 {
+        font-size: 7vw;
+    }
+    
+    .text-img-responsive p {
+        font-size: 4vw;
+    }
+}

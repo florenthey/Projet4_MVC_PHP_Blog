@@ -19,12 +19,13 @@ class View
 
     public function render($template, $data = [])
     {
-        $this->file = '../templates/'.$template.'.php';
-        $content  = $this->renderFile($this->file, $data);
+        $this->file = '../templates/' . $template . '.php';
+        $content = $this->renderFile($this->file, $data);
         $view = $this->renderFile('../templates/base.php', [
             'title' => $this->title,
             'content' => $content,
             'session' => $this->session,
+            'meta' => $this->meta,
         ]);
         echo $view;
     }
