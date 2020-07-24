@@ -9,7 +9,12 @@ use blog\config\Router;
                 //hydratation objet = model
                     //appel de la vue (+objet) = vue
 
-require '../config/dev.php';
+if ($_SERVER['SERVER_NAME'] == 'localhost') {
+    require '../config/dev.php';
+} else {
+    require '../config/prod.php';
+}
+
 require '../vendor/autoload.php';
 
 session_start();
@@ -17,4 +22,5 @@ session_start();
 // intercepte les requètes et renvoie vers la vue adaptée
 $router = new Router();
 $router->run();
+
 
