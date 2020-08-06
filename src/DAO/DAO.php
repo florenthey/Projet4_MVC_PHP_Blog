@@ -25,10 +25,10 @@ abstract class DAO {
         // tentative de connexion à la bdd
         try {
             $this->connection = new PDO(DB_HOST, DB_USER, DB_PASS);
-            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            //$this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             return $this->connection;
-        }
+        }   
         // si échec
         catch(Exception $errorConnection) {
             die ('Erreur de connection :'.$errorConnection->getMessage());

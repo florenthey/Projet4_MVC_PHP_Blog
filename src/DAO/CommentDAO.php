@@ -20,7 +20,7 @@ class CommentDAO extends DAO {
 
     // récupère tout les commentaires liés à un article spécifique
     public function getCommentsFromArticle($articleId) {
-        $sql = 'SELECT id, pseudo, content, createdAt, flag FROM blog.comment WHERE article_id = ? ORDER BY createdAt DESC';
+        $sql = 'SELECT id, pseudo, content, createdAt, flag FROM dbs663277.comment WHERE article_id = ? ORDER BY createdAt DESC';
         $result = $this->createQuery($sql, [$articleId]);
         
         $comments = [];
@@ -29,7 +29,6 @@ class CommentDAO extends DAO {
             $comments[$commentId] = $this->buildObject($row);
         }
         $result->closeCursor();
-
         return $comments;
     }
 

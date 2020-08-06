@@ -3,7 +3,7 @@
 
 
 <div class="container">
-    <a class="btn btn-warning" href="../public/index.php">Retour à la liste des chapitres</a>
+    <a class="btn btn-warning" href="./index.php">Retour à la liste des chapitres</a>
     <div class="card">
         <div class="card-body">
             <?php include('form_article.php');?>

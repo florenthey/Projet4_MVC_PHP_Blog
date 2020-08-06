@@ -6,8 +6,8 @@
 <?= $this->session->show('logout'); ?>
 
 <div class="container-img">
-  <!-- <img class="alaska-img" src="../public/img/Alaska.jpg"> -->
-  <video title="Aurore bauréale" class="alaska-img" src="../public/img/video.mp4"  muted autoplay loop controls>
+  <!-- <img class="alaska-img" src="./img/Alaska.jpg"> -->
+  <video title="Aurore bauréale" class="alaska-img" src="./img/video.mp4"  muted autoplay loop controls>
   Votre navigateur ne gère pas l'élément <code>video</code>.
 </video>
   <div class="text-img">
@@ -35,13 +35,13 @@
       ?>
         <div class="card text-center border-dark">
           <div class="card-header">
-            <a class="chapter-title"href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= $article->getTitle();?></a>
+            <a class="chapter-title"href="./index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= $article->getTitle();?></a>
           </div>
           <div class="card-body">
             <h3 class="card-title"></h3>
             <p class="card-text"><?= mb_strimwidth($article->getContent(), 0, 350, " ...");?></p>
             <p class="text-center">
-              <a class="btn btn-warning" href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?> (...suite)</a>
+              <a class="btn btn-warning" href="./index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?> (...suite)</a>
             </p>
           </div>
           <div class="card-footer text-muted">

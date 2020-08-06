@@ -4,7 +4,7 @@
 <?php setlocale(LC_TIME, "fr_FR"); ?>
 
 <div class="container">
-    <a class="btn btn-warning" href="../public/index.php">Retour à la liste des chapitres</a>
+    <a class="btn btn-warning" href="./index.php">Retour à la liste des chapitres</a>
     <div class="card">
         <div class="card-header text-center">
             <h1><?= $title ?></h1>
@@ -30,11 +30,10 @@
                     <?php
                 } else {
                     ?>
-                    <a class="btn btn-danger" href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a>
+                    <a class="btn btn-danger" href="./index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a>
                     <?php
                 }
                 ?>
-            <!-- <p><a href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a></p> -->
                 <br>
                 <?php
             }
@@ -43,8 +42,8 @@
     </div>
 
     <div class="actions">
-        <!-- <a href="../public/index.php?route=editArticle&articleId=<?= $article->getId(); ?>">Modifier</a> -->
-        <!-- <a href="../public/index.php?route=deleteArticle&articleId=<?= $article->getId(); ?>">Supprimer</a> -->
+        <!-- <a href="./index.php?route=editArticle&articleId=<?= $article->getId(); ?>">Modifier</a> -->
+        <!-- <a href="./index.php?route=deleteArticle&articleId=<?= $article->getId(); ?>">Supprimer</a> -->
     </div>
 
     </div>
