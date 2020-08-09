@@ -18,11 +18,9 @@ class FrontController extends Controller
     public function article($articleId)
     {
         $article = $this->articleDAO->getArticle($articleId);
-        // $comments = $this->commentDAO->getCommentsFromArticle($articleId);
 
         return $this->view->render('single', [
             'article' => $article,
-            // 'comments' => $comments
         ]);
     }
 
@@ -34,7 +32,7 @@ class FrontController extends Controller
                 $this->commentDAO->addComment($post, $articleId);
                 $this->session->set('add_comment', 'Le nouveau commentaire a bien été ajouté');
 
-                header('Location: ../public/index.php');
+                header('Location: ./index.php');
             }
             $article = $this->articleDAO->getArticle($articleId);
             $comments = $this->commentDAO->getCommentsFromArticle($articleId);
@@ -52,7 +50,7 @@ class FrontController extends Controller
         $this->commentDAO->flagComment($commentId);
         $this->session->set('flag_comment', 'Le commentaire a bien été signalé');
 
-        header('Location: ../public/index.php');
+        header('Location: ./index.php');
     }
 
     public function login(Parameter $post) {
@@ -63,7 +61,7 @@ class FrontController extends Controller
                 $this->session->set('id', $result['result']['id']);
                 $this->session->set('pseudo', $post->get('pseudo'));
 
-                header('Location: ../public/index.php');
+                header('Location: ./index.php');
             } else {
                 $this->session->set('error_login', 'Le pseudo ou le mot de passe sont incorrects');
 
