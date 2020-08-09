@@ -10,7 +10,6 @@ use blog\src\controller\BackController;
 
 use Exception;
 
-// intercepte les requètes et renvoie vers la vue adaptée
 class Router
 {
     private $frontController;
@@ -28,14 +27,11 @@ class Router
 
     public function run()
     {
-        // $this->request->getSession()->set('test', 'value');
-        // var_dump($this->request->getSession()->get('test'));
         $route = $this->request->getGet()->get('route');
         try{
             if (isset($route)) {
                 if ($route === 'article') {
                     $this->frontController->article($this->request->getGet()->get('articleId'));
-                    // $this->frontController->article($_GET['articleId']);
                 } elseif ($route === 'addArticle') {
                     $this->backController->addArticle($this->request->getPost());
                 } elseif ($route === 'editArticle') {

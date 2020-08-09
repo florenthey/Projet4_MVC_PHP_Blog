@@ -9,7 +9,6 @@ use blog\src\DAO\CommentDAO;
 use blog\src\DAO\UserDAO;
 use blog\src\model\View;
 
-// centralise les données qui seront utilisées par les controllers qui héritent de cette classe
 abstract class Controller {
     protected $articleDAO;
     protected $commentDAO;
