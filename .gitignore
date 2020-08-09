@@ -1,5 +1,6 @@
 .DS_Store/
 idea/
+infos.php
 vendor/
 /config/dev.php/
 /config/prod.php/
