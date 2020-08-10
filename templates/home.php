@@ -35,10 +35,9 @@
       ?>
         <div class="card text-center border-dark">
           <div class="card-header">
-            <a class="chapter-title"href="./index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= $article->getTitle();?></a>
+            <a class="chapter-title" href="./index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= $article->getTitle();?></a>
           </div>
           <div class="card-body">
-            <h3 class="card-title"></h3>
             <p class="card-text"><?= mb_strimwidth($article->getContent(), 0, 350, " ...");?></p>
             <p class="text-center">
               <a class="btn btn-warning" href="./index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?> (...suite)</a>

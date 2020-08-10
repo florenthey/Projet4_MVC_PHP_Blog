@@ -18,7 +18,6 @@ class CommentDAO extends DAO {
         return $comment;
     }
 
-    // récupère tout les commentaires liés à un article spécifique
     public function getCommentsFromArticle($articleId) {
         $sql = 'SELECT id, pseudo, content, createdAt, flag FROM dbs663277.comment WHERE article_id = ? ORDER BY createdAt DESC';
         $result = $this->createQuery($sql, [$articleId]);
